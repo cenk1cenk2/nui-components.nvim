@@ -68,6 +68,9 @@ end
 function Paragraph:_truncate_line(line, max_width)
   local width = line:width()
   local last_part_idx = #line._texts
+  if not last_part_idx then
+    return
+  end
 
   while width > max_width do
     local extra_width = width - max_width
